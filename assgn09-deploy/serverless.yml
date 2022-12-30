@@ -1,0 +1,16 @@
+service: serverless-cifar
+ 
+provider:
+  name: aws #cloud provider
+  region: us-west-2 #region (Oregon)
+  memorySize: 10240 #memory usage
+  timeout: 300 
+ 
+functions:
+  mnist:
+    image: 523843493491.dkr.ecr.us-west-2.amazonaws.com/cifar-serverless-v1:latest
+    events:
+      - http:
+          path: inference 
+          method: post 
+          cors: true

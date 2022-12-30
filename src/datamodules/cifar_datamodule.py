@@ -7,6 +7,7 @@ from torchvision.datasets import CIFAR10
 from torchvision.transforms import transforms
 
 from pl_bolts.transforms.dataset_normalizations import cifar10_normalization
+import torchvision.transforms as T
 
 
 class CIFARDataModule(LightningDataModule):
@@ -52,9 +53,15 @@ class CIFARDataModule(LightningDataModule):
         self.save_hyperparameters(logger=False)
 
         # data transformations
-        self.transforms = transforms.Compose(
-            [transforms.ToTensor(), cifar10_normalization()]
-        )
+        # self.transforms = transforms.Compose(
+        #     [transforms.ToTensor(), cifar10_normalization()]
+        # )
+        self.transforms = T.Compose([
+            T.Resize((32, 32)),
+            T.ToTensor(),
+            T.Normalize((0.4914, 0.4822, 0.4465),
+                        (0.247, 0.243, 0.261))
+        ])
 
         self.data_train: Optional[Dataset] = None
         self.data_val: Optional[Dataset] = None
