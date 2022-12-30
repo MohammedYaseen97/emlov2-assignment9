@@ -152,4 +152,4 @@ logs/
 .autoenv
 
 # assgn09-deploy
-# assgn09-deploy/.serverless/
+assgn09-deploy/.serverless/
