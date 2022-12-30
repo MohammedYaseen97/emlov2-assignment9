@@ -15,7 +15,4 @@
 
 In this assignment, we deploy our model container as a service on AWS Lambda, and we deploy our frontend on Vercel.
 
-Use the application at :
-```
-https://emlov2-serverless-frontend.vercel.app/
-```
+Use the application [here](https://emlov2-serverless-frontend.vercel.app/)
